@@ -16,7 +16,7 @@ public class StudentService {
         students.addAll(newStudents);
         return students;
     }
-    public List<Student> getStudents(){
+    public List<Student> getAllStudents(){
        return students;
     }
 }
