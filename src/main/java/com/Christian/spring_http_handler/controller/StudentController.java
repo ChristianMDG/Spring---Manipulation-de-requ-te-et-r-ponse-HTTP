@@ -2,6 +2,9 @@ package com.Christian.spring_http_handler.controller;
 
 import com.Christian.spring_http_handler.entity.Student;
 import com.Christian.spring_http_handler.service.StudentService;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +25,11 @@ public class StudentController {
        return studentService.getStudentName();
     }
     @GetMapping("/students")
-    public List<Student> getStudentList(){
-        return studentService.getStudentList();
+    public ResponseEntity<String> getStudentName(@RequestHeader(HttpHeaders.ACCEPT)  String acceptHeader){
+        if("text/plain".equalsIgnoreCase(acceptHeader)){
+           return ResponseEntity.ok(studentService.getStudentName());
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Invalid Accept");
+        }
     }
 }
