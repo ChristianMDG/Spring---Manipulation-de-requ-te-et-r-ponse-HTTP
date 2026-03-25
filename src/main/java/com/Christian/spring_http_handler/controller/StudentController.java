@@ -24,7 +24,7 @@ public class StudentController {
         if (name == null || name.trim().isEmpty()) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
-                    .body("Le paramètre 'name' est requis");
+                    .body("The paramaters name is required");
         }
         return ResponseEntity.ok("Welcome " + name + "!");
     }
@@ -48,7 +48,7 @@ public class StudentController {
         if (acceptHeader == null || acceptHeader.trim().isEmpty()) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
-                    .body("Header Accept manquant");
+                    .body("Header Accept is missing");
         }
 
         List<Student> students = studentService.getAllStudents();
@@ -66,6 +66,6 @@ public class StudentController {
 
         return ResponseEntity
                 .status(HttpStatus.NOT_IMPLEMENTED)
-                .body("Format non supporté");
+                .body("Format not supported");
     }
 }
