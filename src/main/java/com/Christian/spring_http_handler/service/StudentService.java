@@ -8,15 +8,15 @@ import java.util.List;
 
 @Service
 public class StudentService {
-    List<Student> students = new ArrayList<>();
-    public List<Student> addStudent(List<Student> newStudents){
-        if (newStudents== null || newStudents.isEmpty()) {
-            throw new RuntimeException("Erreur serveur simulée");
-        }
+
+    private final List<Student> students = new ArrayList<>();
+
+    public List<Student> addStudents(List<Student> newStudents) {
         students.addAll(newStudents);
         return students;
     }
-    public List<Student> getAllStudents(){
-       return students;
+
+    public List<Student> getAllStudents() {
+        return students;
     }
 }
